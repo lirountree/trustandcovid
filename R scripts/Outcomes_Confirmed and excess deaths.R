@@ -3,14 +3,14 @@ library(tidyverse)
 
 # Confirmed COVID-19 deaths per million:
 
-df <- read.csv("~/Desktop/GSRA/COVID Data/time_series_covid19_deaths_global.csv") %>% select(Country.Region, Province.State, X1.1.23)
+df <- read.csv("COVID Data/time_series_covid19_deaths_global.csv") %>% select(Country.Region, Province.State, X1.1.23)
 df[df$Country.Region=='Taiwan*',]$Country.Region <- 'Taiwan'
 deaths <- aggregate(df$X1.1.23, list(df$Country.Region), sum)
 colnames(deaths) <- c("Country", "Total_deaths")
 
 deaths$Country <- countrycode(deaths$Country, 'country.name', "iso3c")
 
-pop1 <- read.csv("~/Desktop/GSRA/COVID Data/API_SP.POP.TOTL_DS2_en_csv_v2_79.csv", header=FALSE)[-c(1,2),] %>%
+pop1 <- read.csv("COVID Data/API_SP.POP.TOTL_DS2_en_csv_v2_79.csv", header=FALSE)[-c(1,2),] %>%
   select(V2, V67) 
 pop <- pop1[c(-1),]
 colnames(pop) <- c("Country", "Population") # 2022 population
@@ -21,14 +21,14 @@ df2 <- merge(deaths, pop, by.x='Country')
 
 df2$Deaths_million <- (df2$Total_deaths / as.numeric(df2$Population))*1000000
 
-write.csv(df2, "~/Desktop/GSRA/COVID Data/JHU Total Deaths 2020-2022.csv", row.names=FALSE)
+write.csv(df2, "COVID Data/JHU Total Deaths 2020-2022.csv", row.names=FALSE)
 
 # Excess deaths per million:
 
-df <- read.csv("~/Desktop/GSRA/COVID Data/excess_summarized.csv", check.names=FALSE) %>% 
+df <- read.csv("COVID Data/excess_summarized.csv", check.names=FALSE) %>% 
   select(Country, est, WHO_region)
 
-pop <- read.csv("~/Desktop/GSRA/COVID Data/JHU Total Deaths 2020-2022.csv", check.names=FALSE) %>%
+pop <- read.csv("COVID Data/JHU Total Deaths 2020-2022.csv", check.names=FALSE) %>%
   select(Country, Population)
 #pop$Country <- countrycode(pop$Country, 'iso3c', 'country.name')
 
@@ -42,7 +42,7 @@ df2 <- na.omit(data.frame(Country=countrycode(names(excess), 'country.name', 'is
 
 data <- merge(df2, pops, by="Country")
 
-taiwan <- read.csv("~/Desktop/GSRA/COVID Data/taiwan_excess_deaths.csv", check.names=FALSE)
+taiwan <- read.csv("COVID Data/taiwan_excess_deaths.csv", check.names=FALSE)
 
 data <- merge(df2, pop, by="Country")
 
@@ -70,4 +70,4 @@ get_metric(taiwan)
 taiwan2 <- c("Taiwan", 1, 1, unname(get_metric(taiwan)))
 data <- rbind(data, taiwan2)
 
-write.csv(data[,c("Country", "Excess_per_million")], "~/Desktop/GSRA/COVID Data/WHO Excess deaths 2020-2021.csv", row.names=FALSE)
+write.csv(data[,c("Country", "Excess_per_million")], "COVID Data/WHO Excess deaths 2020-2021.csv", row.names=FALSE)

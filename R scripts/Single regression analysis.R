@@ -2,7 +2,7 @@ library(tidyverse) ; library(car)
 
 set.seed(2024)
 
-dat <- read.csv("~/Desktop/GSRA/Organized (clean) dataframes/Regression dataframe.csv", check.names=FALSE)
+dat <- read.csv("Regression dataframe.csv", check.names=FALSE)
 covariates <- colnames(dat[,2:34])
 outcomes <- c('Deaths_million', 'Vaccination_rate', 'Excess_per_million')
 confounders <- c("GDP", "Life_expectancy", "Education", "Urbanicity", "Freedom_Score")

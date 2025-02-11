@@ -2,7 +2,7 @@ library(jsonlite) ; library(tidyverse) ; library(gt) ; library(coda)
 
 # Actual data analysis:
 
-dat <- read.csv("~/Desktop/GSRA/Organized (clean) dataframes/Regression dataframe.csv", check.names=FALSE)
+dat <- read.csv("Regression dataframe.csv", check.names=FALSE)
 irrel <- c("Q64", "Q65", "Q68", "Q69", "Q77", "Q78", "Q80", "Q84", "Q85","Q89")
 confounders <- c("GDP", "Life_expectancy", "Education", "Urbanicity", "Freedom_Score")
 covariates <- paste0("Q", 57:89)
@@ -12,9 +12,9 @@ sig_ds <- c("Q71", "Q66", "Q70", "Q67", "Q73", "Q72", "Q74", "Q87", "Q88", "Q79"
 sig_vs <- c("Q73", "Q76", "Q72", "Q83", "Q88")
 sig_es <- c( "Q70", "Q88", "Q83", "Q59", "Q74", "Q67", "Q86", "Q82", "Q66", "Q87")
 
-excess <- fromJSON('~/Desktop/premium/excess/excess.json')
-vax <- fromJSON('~/Desktop/premium/vax/vax.json')
-death <- fromJSON('~/Desktop/premium/death/death.json')
+excess <- fromJSON('premium/excess/excess.json')
+vax <- fromJSON('premium/vax/vax.json')
+death <- fromJSON('premium/death/death.json')
 
 dat$excess.clustering <- excess$clustering
 dat$vax.clustering <- vax$clustering
@@ -118,7 +118,7 @@ gt(rbind(results, avgs, ns), rownames_to_stub=TRUE) %>%
 
 ##
 
-zs <- lapply(strsplit(readLines('~/Desktop/premium/excess/output_z.txt'), " "), as.numeric) # set WD
+zs <- lapply(strsplit(readLines('premium/excess/output_z.txt'), " "), as.numeric) # set WD
 clust_df <- c()
 
 for (i in 1:length(zs)){

@@ -2,7 +2,7 @@ library(PReMiuM) ; library(jsonlite) ; library(tidyverse) ; library(coda)
 
 # Obtaining data for analysis:
 
-dat <- read.csv("~/Desktop/GSRA/Organized (clean) dataframes/Regression dataframe.csv", check.names=FALSE)
+dat <- read.csv("Regression dataframe.csv", check.names=FALSE)
 covariates <- colnames(dat[,2:34])
 outcomes <- c('Deaths_million', 'Vaccination_rate', 'Excess_per_million')
 confounders <- c("GDP", "Life_expectancy", "Education", "Urbanicity", "Freedom_Score")
@@ -59,7 +59,7 @@ dat_list$fixedEffectNames <- confounders
 
 # Below is done for each of the three outcomes
 
-setwd('~/Desktop/premium/death') 
+setwd('premium/death') 
 outputs <- profRegr(yModel=dat_list$yModel,
                     xModel=dat_list$xModel,
                     outcome="Deaths_million",

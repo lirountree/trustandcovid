@@ -2,7 +2,7 @@ library(ggpubr) ; library(tidyverse) ; library(factoextra) ; library(mclust)
 
 set.seed(2024)
 
-dat <- read.csv("~/Desktop/GSRA/Organized (clean) dataframes/Regression dataframe.csv", check.names=FALSE)
+dat <- read.csv("Regression dataframe.csv", check.names=FALSE)
 covariates <- colnames(dat[,2:34])
 outcomes <- c('Deaths_million', 'Vaccination_rate', 'Excess_per_million')
 confounders <- c("GDP", "Life_expectancy", "Education", "Urbanicity", "Freedom_Score")
@@ -155,7 +155,7 @@ gt::gt(df, rownames_to_stub = TRUE) %>%
                    locations = gt::cells_column_spanners(spanners = 'GMM classes')) %>%
   gt::tab_style(style=(gt::cell_text(style='italic', size="small")),
                 location=list(gt::cells_footnotes())) %>%
-  gt::gtsave(filename = "~/Desktop/GSRA/Figures_New analysis/Cluster subdomain table.docx")
+  gt::gtsave(filename = "Cluster subdomain table.docx")
 
 # Regression results for GMM
 
@@ -213,7 +213,7 @@ gt::gt(rbind(deathregk, vaxregk, excessregk)) %>%
   ) %>%
   gt::tab_footnote(footnote=gt::md("*High trust is the reference group used in all regression models.*"),
                  location = gt::cells_column_labels(1)) %>%
-  gt::gtsave(filename = "~/Desktop/GSRA/Figures_New analysis/k-means outcome table.docx")
+  gt::gtsave(filename = "k-means outcome table.docx")
 
 ## kmeans regression  
   
@@ -271,7 +271,7 @@ gt::gt(rbind(deathregk, vaxregk, excessregk)) %>%
   ) %>%
   gt::tab_footnote(footnote=gt::md("*High trust is the reference group used in all regression models.*"),
                    location = gt::cells_column_labels(1)) %>%
-  gt::gtsave(filename = "~/Desktop/GSRA/Figures_New analysis/kmeans outcome table.docx")
+  gt::gtsave(filename = "kmeans outcome table.docx")
 
 ##
 

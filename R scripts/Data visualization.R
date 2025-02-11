@@ -1,7 +1,7 @@
 library(tidyverse) ; library(ggpubr) ; library(reshape2) ; library(gtsummary)
 library(countrycode) ; library(Hmisc)
 
-dat <- read.csv("~/Desktop/GSRA/Organized (clean) dataframes/Regression dataframe.csv", check.names=FALSE)
+dat <- read.csv("Regression dataframe.csv", check.names=FALSE)
 dat$GDP <- dat$GDP*1000
 
 covariates <- colnames(dat[,2:34])
@@ -71,11 +71,11 @@ tbl_stack(list(covar, confound, outcomes),
     style = gt::cell_text(weight = "bold"),
     locations = gt::cells_row_groups(groups = everything())
   ) %>%
-    gt::gtsave(filename = "~/Desktop/GSRA/Figures_New analysis/Summary table.docx")
+    gt::gtsave(filename = "Summary table.docx")
   
 # Distribution of question trust scores
 
-df <- read.csv("~/Desktop/GSRA/Organized (clean) dataframes/Wave 7 Q57-89 Median Imputation.csv",
+df <- read.csv("Wave 7 Q57-89 Median Imputation.csv",
                check.names=FALSE)
 df$Country <- countrycode(df$Country, origin='iso3c', 'country.name')
 qdat <- df[df$Country %in% dat$Country,]
@@ -100,7 +100,7 @@ ggplot(melt(cor(qdat[,-1])), aes(x = Var1, y = Var2, fill=value)) +
 questions <- paste0("Q", 57:89)
 
 inputs <- c()
-for (question in questions){inputs[question] <- paste0("~/Desktop/GSRA/Wave 7 csvs/Wave 7 ", question, ".csv")}
+for (question in questions){inputs[question] <- paste0("Wave 7 csvs/Wave 7 ", question, ".csv")}
 countries <- data.frame(read.csv(inputs[1], check.names=FALSE)$Country)
 
 get_vecs_missing <- function(input){vec <- data.frame(read.csv(input)) ; vec}

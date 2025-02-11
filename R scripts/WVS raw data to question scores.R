@@ -3,7 +3,7 @@
 library(tidyverse)
 library(countrycode)
 
-dat <- read.csv("~/Desktop/GSRA/WVS Data/WVS_Cross-National_Wave_7_csv_v6_0.csv")
+dat <- read.csv("WVS_Cross-National_Wave_7_csv_v6_0.csv")
 
 # Want questions 58:89 (share ordinal structure)
 

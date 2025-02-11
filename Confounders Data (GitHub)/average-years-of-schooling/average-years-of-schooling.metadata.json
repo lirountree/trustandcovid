@@ -1,0 +1,45 @@
+{
+  "chart": {
+    "title": "Average years of schooling",
+    "subtitle": "Average number of years adults over 25 years participated in formal education.",
+    "note": "Formal education is [primary](#dod:primary-education)/ISCED 1 or higher. This does not include years spent repeating grades.",
+    "citation": "UNDP, Human Development Report (2024)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/average-years-of-schooling?v=1&csvType=full&useColumnShortNames=false",
+    "selection": [
+      "United States",
+      "United Kingdom",
+      "South Korea",
+      "China",
+      "Brazil",
+      "India",
+      "Nigeria",
+      "Democratic Republic of Congo",
+      "Niger",
+      "Chile"
+    ]
+  },
+  "columns": {
+    "Average years of schooling": {
+      "titleShort": "Average years of schooling",
+      "titleLong": "Average years of schooling",
+      "descriptionShort": "Average number of years adults over 25 years participated in formal education.",
+      "descriptionKey": [
+        "Formal education is primary/ISCED 1 or higher.",
+        "This indicator does not include years spent repeating grades."
+      ],
+      "descriptionProcessing": "We calculated averages over continents and income groups by taking the population-weighted average of the countries in each group. If less than 80% of countries in an area report data for a given year, we do not calculate the average for that area.",
+      "shortUnit": "years",
+      "unit": "years",
+      "timespan": "1990-2022",
+      "type": "Numeric",
+      "owidVariableId": 899547,
+      "shortName": "mys",
+      "lastUpdated": "2024-04-09",
+      "nextUpdate": "2025-04-09",
+      "citationShort": "UNDP, Human Development Report (2024) – with minor processing by Our World in Data",
+      "citationLong": "UNDP, Human Development Report (2024) – with minor processing by Our World in Data. “Average years of schooling” [dataset]. UNDP, Human Development Report, “Human Development Report 2023-2024” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/899547.metadata.json"
+    }
+  },
+  "dateDownloaded": "2024-11-14"
+}

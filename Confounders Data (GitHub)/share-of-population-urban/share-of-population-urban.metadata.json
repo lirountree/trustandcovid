@@ -1,0 +1,37 @@
+{
+  "chart": {
+    "title": "Share of the population living in urban areas",
+    "subtitle": "",
+    "note": "Because the estimates of city and metropolitan areas are based on national definitions of what constitutes a city or metropolitan area, cross-country comparisons should be made with caution.",
+    "citation": "Multiple sources compiled by World Bank (2024)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/share-of-population-urban?v=1&csvType=full&useColumnShortNames=false",
+    "selection": [
+      "Vietnam",
+      "China",
+      "India",
+      "Brazil",
+      "South Africa",
+      "United States",
+      "World"
+    ]
+  },
+  "columns": {
+    "Urban population (% of total population)": {
+      "titleShort": "Urban population (% of total population)",
+      "titleLong": "Urban population (% of total population)",
+      "descriptionKey": [],
+      "shortUnit": "%",
+      "unit": "% of total",
+      "timespan": "1960-2022",
+      "type": "Numeric",
+      "owidVariableId": 906167,
+      "shortName": "sp_urb_totl_in_zs",
+      "lastUpdated": "2024-05-20",
+      "nextUpdate": "2025-05-20",
+      "citationShort": "Multiple sources compiled by World Bank (2024) – processed by Our World in Data",
+      "citationLong": "Multiple sources compiled by World Bank (2024) – processed by Our World in Data. “Urban population (% of total population)” [dataset]. UN Population Division (via World Bank), “World Development Indicators” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/906167.metadata.json"
+    }
+  },
+  "dateDownloaded": "2024-11-14"
+}

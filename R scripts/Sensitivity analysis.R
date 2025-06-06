@@ -33,8 +33,6 @@ hospital$Country <- countrycode(hospital$Country, 'iso3c', 'country.name')
 hospital$hospital_beds <- as.numeric(hospital$hospital_beds)
 # Sourced from https://www.mohw.gov.tw/cp-7155-79484-2.html 
 
-# Hospital beds might also be problematic as it certainly changed during COVID—but this is maybe a good indication of baseline?
-
 # Gov't effectiveness
 wgi <- read.csv("~/Desktop/GSRA/Trust paper/Confounders Data/wgidataset_excel/wgi.csv") %>% select(countryname, year, indicator, estimate) %>%
   filter(indicator == 'ge', year == 2019) %>% select(countryname, estimate)

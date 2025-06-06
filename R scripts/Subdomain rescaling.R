@@ -33,3 +33,5 @@ df <- data.frame(country=dat$Country, results, gdp=dat$GDP, life_expectancy=dat$
                  vax_rate=dat$Vaccination_rate, excess_million=dat$Excess_per_million)
 
 write.csv(df, "~/Desktop/GSRA/Trust paper/Organized (clean) dataframes/Subdomain dataframe.csv", row.names=FALSE)
+
+# Analysis then follows steps outlined as outlined for single items in other files.
